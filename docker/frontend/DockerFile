@@ -1,0 +1,15 @@
+FROM --platform=$BUILDPLATFORM node:17.0.1-bullseye-slim as builder
+
+RUN mkdir /usr/src/app && mkdir /usr/src/app/frontend
+ 
+WORKDIR /usr/src/app/frontend
+
+COPY . .
+
+RUN npm install -g @angular/cli@13
+
+# RUN npm install 
+
+RUN npm update --force
+
+# RUN ng serve
